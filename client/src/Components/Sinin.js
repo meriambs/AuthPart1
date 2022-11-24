@@ -4,13 +4,15 @@ import { postContact } from '../api/authuser';
 import { useNavigate } from 'react-router';
 import './Sinin.css'
 const Sinin = () => {
+
   let navigate = useNavigate();
   const [name,setName]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+
+  // ici nous avons el handel submit qui permet l'envoie de notre obkjet pour la partie register 
   const handleSubmit=async(value)=>{
     await postContact(value)
-    // console.log('addingContact',handleSubmit),
      navigate('/login')
     
       }

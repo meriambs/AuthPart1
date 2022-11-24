@@ -7,7 +7,11 @@ import './Sinin.css'
 import { useNavigate } from 'react-router';
 import axios from 'axios'
 const SignUp = () => {
+
    //handel the modal
+  //  cette partie c'est pour l'affichage d'un modal dans le cas d'un email erroné 
+  // la function submit , qui avec le ctach catch une erreur est dans ce cas nous avons le declemnchement du modal 
+
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
@@ -23,16 +27,15 @@ const SignUp = () => {
 	try{
     const res = await axios.post(`http://localhost:5000/auth/signin`, values);
 	  await localStorage.setItem('token', res.data.token);
-	  
 		navigate('/app/Profile')
-	 
-    
   }catch (err) {
         handleShow();
         console.log('your rong')
       }
     
 	}
+
+
   return (
 	<div className='bbody'>
         <Modal
@@ -57,7 +60,7 @@ const SignUp = () => {
         </Modal.Footer>
       </Modal>
 
-  
+  {/* end handel part */}
   <main>
 <div className="row">
     <div className="colm-logo">

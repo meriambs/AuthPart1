@@ -25,10 +25,3 @@ export default App;
 
 
 
-// admin psw {
-//     "name":"Uzume",
-//     "email":"Uzume@gmail.com",
-//     "password":"UzumeUzume",
-//     "userNAme":"UzumeUzume",
-//     "role":"admin"
-// }
