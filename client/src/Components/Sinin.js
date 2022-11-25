@@ -36,7 +36,7 @@ const Sinin = () => {
             <input type="password" placeholder="Password" value={password}
           onChange={(e)=>setPassword(e.target.value)}/>
   
-           <input type="password" placeholder="name"  value={name}
+           <input type="text" placeholder="name"  value={name}
          onChange={(e)=>setName(e.target.value)}/>
        
             <button className="btn-login"  onClick={()=>handleSubmit({name,email,password})}>Register</button>

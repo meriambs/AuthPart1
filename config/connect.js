@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const connectdb=async ()=>{
     try{
-        //ici ne pas oublier a mettre lien de votre atlas 
-   await  mongoose.connect('lien a remplacer avec ')
+   await  mongoose.connect('mongodb+srv://kamikaze:Skd4rRscZaXL7RhQ@cluster0.8mco3.mongodb.net/?retryWrites=true&w=majority')
 console.log('you are connected to the db ')
     }catch(err){
         console.log(err)

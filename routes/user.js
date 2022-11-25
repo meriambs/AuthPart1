@@ -2,7 +2,7 @@ const express = require('express');
 const UserShcema = require('../model/user')
 
 const userRoutes = express.Router()
-const {test,login,register}=require('../controllers/user')
+const {test,login,register, updateProfile}=require('../controllers/user')
 const  {registerValidation , logvalidator,validation} = require('../middelware/RegisterValidator')
 
 const {isAuth} = require('../middelware/isAuth')
@@ -27,4 +27,8 @@ res.send(getall)
         console.log(err)
     }
 })
+
+
+
+
 module.exports = userRoutes

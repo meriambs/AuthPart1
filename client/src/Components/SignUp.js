@@ -79,7 +79,7 @@ const SignUp = () => {
             <button className="btn-login" onClick={()=>onSubmit({email,password})}>Login</button>
             <br/>
 
-            <button className="btn-new" onClick={()=>navigate('/register')} >Register new Account</button>
+            <button className="btn-new" onClick={()=>navigate('/')} >Register new Account</button>
         </div>
     </div>
 </div>

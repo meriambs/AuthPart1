@@ -1,5 +1,4 @@
 const UserShcema = require('../model/user')
-
 const bcrypt = require('bcrypt');
 // le package jsonwebtoken est utilisé pour autoriser
 //  un utilisateur (d'ailleurs, autoriser signifie vérifier 
@@ -9,7 +8,6 @@ const bcrypt = require('bcrypt');
 //  ce qui se produit pendant le processus de connexion)
 
 const jwt = require('jsonwebtoken')
-
 
 //ici c'est juste pour tester la route 
 exports.test=(req,res)=>{
@@ -21,13 +19,10 @@ console.log(err)
 }
 //**************************REGISTER  */
 exports.register=async(req,res)=>{
-    try{
-        
+    try{   
 const {name,email,password}=req.body
-
-
 const found = await UserShcema.findOne({email})
-if(found){return res.status(404).json({msg:'vous avez deja un compte voir le login',errors})}
+if(found){return res.status(404).json({msg:'vous avez deja un compte voir le login'})}
 
 
 // creation d'un compte normal 
@@ -71,25 +66,23 @@ res.status(200).send({msg:'welcome to the groupe ', newUser,token})
 
 
 
-
-
 //***********************LOGIN  */
 exports.login=async (req,res)=>{
 try{
-    const {email,password} = req.body 
+const {email,password} = req.body 
 
-    const found = await UserShcema.findOne({email})
-    if(!found){return res.status(404).json({msg:'invalid email',errors})}
+const found = await UserShcema.findOne({email})
+if(!found){return res.status(404).json({msg:'invalid email'})}
 
 const match = await bcrypt.compare(password, found.password)
-if(!match){return res.status(404).json({msg:'error partie mdp',errors})}
+if(!match){return res.status(404).json({msg:'error partie mdp'})}
+
 // creation mt3 el token 
 
 const payload = { id : found._id}
 var token = jwt.sign(payload,process.env.privateKey )
 
 res.status(200).send({msg:'ur welcome',token , found})
-
 
 }catch(err){
 console.log(err)
@@ -121,3 +114,8 @@ console.log(err)
 //    devez retourner au guichet pour obtenir un autre 
 //    billet (reconnectez-vous). Et si vous revenez le lendemain, 
 // votre billet ne sera plus valide (les JWT expirent après un certain temps).
+
+
+//ici c'est la route d'update  
+// la meme chose que l'update dans la contact liste 
+

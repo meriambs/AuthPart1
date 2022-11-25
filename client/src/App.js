@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
     <Routes>
-      <Route path='/register' element={<Sinin/>}/>
+      <Route path='/' element={<Sinin/>}/>
       <Route path='/login' element={<SignUp/>}/>
-      <Route path='/HomePage' element={<HomePage/>}/>
+      {/* <Route path='/' element={<HomePage/>}/> */}
       <Route path='/app/Profile' element={<PrivateRoute/>}/>
 {/* //ici nous avons un path pour l'update router de notre user  */}
 <Route path='/update/:id' element={<UpdateForm/>}/>
